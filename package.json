@@ -1,0 +1,28 @@
+{
+  "name": "cax4sablejs",
+  "version": "1.0.0",
+  "description": "Canvas2D rendering engine for sablejs",
+  "main": "index.js",
+  "keywords": [
+    "canvas",
+    "2d",
+    "sablejs",
+    "cax"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sablejs/cax4sablejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sablejs/cax4sablejs/issues"
+  },
+  "homepage": "https://github.com/sablejs/cax4sablejs#readme",
+  "dependencies": {
+    "cax": "^1.3.2"
+  },
+  "devDependencies": {
+    "sablejs": "^1.0.2"
+  }
+}
