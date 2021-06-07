@@ -7,8 +7,6 @@ module.exports = (vm) => {
   const vGroupProto = vm.getPrototype(vGroup);
   const vStage = vm.createFunction("Stage", function () {
     const vThisRef = vm.asObject(this);
-    vm.call(vGroup, this);
-
     for (let key of ["width", "height", "disableMoveDetection", "moveDetectionInterval"]) {
       const getter = vm.createFunction(`getter.${key}`, function () {
         return vm.createNumber(vThisRef.value[key]);
@@ -46,6 +44,8 @@ module.exports = (vm) => {
         vThisRef.value = new cax.Stage(width, height, renderTo.value);
       }
     }
+
+    return vm.call(vGroup, this);
   });
 
   const vFunction = vm.createFunction("function", function () {});

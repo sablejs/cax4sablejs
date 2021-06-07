@@ -7,8 +7,6 @@ module.exports = (vm) => {
   const vGroupProto = vm.getPrototype(vGroup);
   const vButton = vm.createFunction("Button", function (vOption) {
     const vThisRef = vm.asObject(this);
-    vm.call(vGroup, this);
-
     const vX = vm.getProperty(vOption, "x");
     const vY = vm.getProperty(vOption, "y");
     const vWidth = vm.getProperty(vOption, "width");
@@ -78,6 +76,7 @@ module.exports = (vm) => {
     }
 
     vThisRef.value = new cax.Button(option);
+    return vm.call(vGroup, this);
   });
 
   const vFunction = vm.createFunction("function", function () {});
