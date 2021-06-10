@@ -140,6 +140,32 @@ module.exports = (vm) => {
     });
 
     vm.defineProperty(this, "compositeOperation", { get: vCompositeOperationGetter, set: vCompositeOperationSetter });
+
+    // hitbox用于标明对应的事件响应范围
+    const vHitboxGetter = vm.createFunction("hitbox.getter", function () {
+      const vThisRef = vm.asObject(this);
+      const { hitbox } = vThisRef.value;
+      const vHitbox = vm.createArray();
+      for (let i = 0, length = hitbox.length; i < length; i++) {
+        vm.setProperty(vHitbox, i, vm.createNumber(hitbox[i]));
+      }
+      return vHitbox;
+    });
+
+    const vHitboxSetter = vm.createFunction("hitbox.setter", function (vValue) {
+      const vThisRef = vm.asObject(this);
+      const vLength = vm.getProperty(vValue, "length");
+      const length = vm.asNumber(vLength);
+      const hitbox = [];
+      for (let i = 0; i < length; i++) {
+        const item = vm.getProperty(vValue, i);
+        hitbox.push(vm.asNumber(item));
+      }
+      vThisRef.value.hitbox = hitbox;
+      return vValue;
+    });
+
+    vm.defineProperty(this, "hitbox", { get: vHitboxGetter, set: vHitboxSetter });
   });
 
   const vFunction = vm.createFunction("function", function () {});
