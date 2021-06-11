@@ -1,3 +1,4 @@
+const cax = require('cax');
 const { PROPERTIES } = require("./common");
 
 module.exports = (vm) => {
@@ -97,9 +98,13 @@ module.exports = (vm) => {
 
     // stage需要往父级查找
     const vStageGetter = vm.createFunction("stage.getter", function () {
-      let vParent = vm.getProperty(this, "parent");
-      while (vm.isObject(vParent)) {
-        vParent = vm.getProperty(vParent, "parent");
+      let vParent = this;
+      while (true) {
+        const parent = vm.getProperty(vParent, "parent");
+        if (!vm.isObject(parent)) {
+          break;
+        }
+        vParent = parent;
       }
 
       if (vm.isObject(vParent)) {

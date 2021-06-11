@@ -1,6 +1,6 @@
 {
   "name": "cax4sablejs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Canvas2D rendering engine for sablejs",
   "main": "dist/index.js",
   "keywords": [
