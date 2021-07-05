@@ -1,4 +1,4 @@
-const cax = require("cax");
+const cax = require("../vendor/cax/dist/cax");
 
 module.exports = (vm) => {
   const global = vm.getGlobal();
@@ -11,10 +11,10 @@ module.exports = (vm) => {
     const option = {};
 
     if (vm.isObject(vOption)) {
-      for (let key of ["font", "color", "textAlign", "baseline"]) {
+      for (let key of ["font", "color", "textAlign", "baseline", "stroke"]) {
         const vValue = vm.getProperty(vOption, key);
         vm.setProperty(this, key, vValue);
-        option[key] = vm.asString(vValue);
+        option[key] = vm.isUndefined(vValue) ? undefined : vm.asString(vValue);
       }
     }
 

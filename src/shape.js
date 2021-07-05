@@ -1,4 +1,4 @@
-const cax = require("cax");
+const cax = require("../vendor/cax/dist/cax");
 const { SHAPES } = require("./common");
 
 module.exports = (vm) => {
