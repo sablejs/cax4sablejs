@@ -171,6 +171,20 @@ module.exports = (vm) => {
     });
 
     vm.defineProperty(this, "hitbox", { get: vHitboxGetter, set: vHitboxSetter });
+
+    // ignoreHit用于禁止点击触发事件
+    const vIgnoreHitGetter = vm.createFunction("ignoreHit.getter", function () {
+      const vThisRef = vm.asObject(this);
+      return vm.createBoolean(vThisRef.value.ignoreHit);
+    });
+
+    const vIgnoreHitSetter = vm.createFunction("ignoreHit.setter", function (vIgnoreHit) {
+      const vThisRef = vm.asObject(this);
+      vThisRef.value.ignoreHit = vm.asBoolean(vIgnoreHit);
+      return vIgnoreHit;
+    });
+
+    vm.defineProperty(this, "ignoreHit", { get: vIgnoreHitGetter, set: vIgnoreHitSetter });
   });
 
   const vFunction = vm.createFunction("function", function () {});
