@@ -1,6 +1,6 @@
 {
   "name": "cax4sablejs",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Canvas2D rendering engine for sablejs",
   "main": "dist/index.js",
   "keywords": [
@@ -19,8 +19,6 @@
   },
   "homepage": "https://github.com/sablejs/cax4sablejs#readme",
   "dependencies": {
-    "@babel/runtime": "^7.16.3",
-    "@swc/helpers": "^0.2.14",
     "stats.js": "^0.17.0"
   },
   "devDependencies": {

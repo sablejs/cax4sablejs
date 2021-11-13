@@ -1,4 +1,4 @@
-const cax = require("../vendor/cax/dist/cax");
+const cax = require("../vendor/cax/src/index.js");
 
 module.exports = (vm) => {
   const global = vm.getGlobal();
