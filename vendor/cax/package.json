@@ -30,6 +30,10 @@
     "build-min": "webpack",
     "test": "karma start test/karma.conf.js"
   },
+  "dependencies": {
+    "@swc/helpers": "^0.2.14",
+    "process": "^0.11.10"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
